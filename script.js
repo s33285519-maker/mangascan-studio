@@ -1,6 +1,12 @@
-// CONFIG: Coloca sua key do Replicate aqui
-const REPLICATE_TOKEN = "SEU_TOKEN_AQUI";
+// CONFIG: Key fica salva só no seu navegador
+let REPLICATE_TOKEN = localStorage.getItem('replicate_key') || "";
 const REPLICATE_API = "https://api.replicate.com/v1/predictions";
+
+// Pede a key se não tiver salva
+if (!REPLICATE_TOKEN) {
+    REPLICATE_TOKEN = prompt("Cole sua API Key do Replicate aqui:");
+    if (REPLICATE_TOKEN) localStorage.setItem('replicate_key', REPLICATE_TOKEN);
+}
 
 const uploadInput = document.getElementById('upload-manga');
 const uploadArea = document.getElementById('upload-area');
