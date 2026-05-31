@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MangaScan Studio</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">MangaScan<span>Studio</span></div>
+    <div class="menu"><button class="btn-header">Exportar</button></div>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2>Importar obra</h2>
+      <div class="upload-area" id="upload-area">
+        <div class="upload-icone">📂</div>
+        <p><strong>Clique para enviar</strong> ou arraste a página do mangá</p>
+        <input type="file" id="upload-manga" accept="image/*" hidden>
+      </div>
+      <div class="preview" id="preview"></div>
+    </div>
+
+    <div class="card">
+      <h2>Pipeline de Produção</h2>
+      <div class="botoes-estilo">
+        <button class="btn-estilo" data-tipo="anime" disabled>1. 🎌 Gerar Anime 2D</button>
+        <button class="btn-estilo" data-tipo="live" disabled>2. 🎬 Live-Action</button>
+        <button class="btn-estilo" data-tipo="manga" disabled>3. 📖 Editar Mangá</button>
+      </div>
+      
+      <div id="pos-anime" style="display:none; margin-top:20px; border-top:1px solid var(--border); padding-top:20px;">
+        <h3>Dublagem</h3>
+        <div id="falas-container"></div>
+        <button id="btn-gravar" class="btn-estilo" style="background:#10b981; margin-top:15px;">🎙️ Gravar Dublagem</button>
+        <button id="btn-aplicar-voz" class="btn-estilo" style="display:none; margin-top:15px;">🔊 Sincronizar Boca</button>
+        <audio id="player-audio" controls style="width:100%; margin-top:15px; display:none;"></audio>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <h2>Histórico de projetos</h2>
+        <button id="limpar-tudo" style="background:none; border:none; color:var(--text-sec); cursor:pointer;">Limpar tudo</button>
+      </div>
+      <div class="lista-projetos" id="lista-projetos">
+        <p class="vazio">Nenhum projeto ainda. Scaneie sua primeira obra!</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
